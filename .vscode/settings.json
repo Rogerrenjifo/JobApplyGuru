@@ -1,0 +1,57 @@
+{
+    "terminal.integrated.env.windows": {
+        "PYTHONPATH": "${workspaceFolder}"
+    },
+    "terminal.integrated.env.linux": {
+        "PYTHONPATH": "${workspaceFolder}"
+    },
+    "python.linting.pylintEnabled": true,
+    "python.linting.enabled": true,
+    "python.linting.pylintPath": "venv/Script/pylint",
+    "psi-header.lang-config": [
+		{
+			"language": "python",
+			"begin": "\"\"\"",
+            "end": "\"\"\"",
+			"prefix": "# ",
+            "lineLength": 80,
+			"suffix": " #",
+		}
+	],
+    "psi-header.variables": [
+		["projectCreationYear", "2023"],
+        ["projectname", "OrgGuardian"]
+	],
+    "psi-header.config": {
+        "forceToTop": true,
+        "blankLinesAfter": 2,
+        "spacesBetweenYears": false,
+        "author": "Roger Renjifo",
+        "initials": "RRRT",
+        "authorEmail": "rrrenjifo@gmail.com",
+        "company": "Roger Renjifo Tarquino",
+        "copyrightHolder": "MIT License",
+        "creationDateZero": "asIs",
+        "hostname": "myhostname"
+    },
+    "psi-header.templates": [
+        {
+            "language": "python",
+            "template": [
+                "############################################################################",
+                "",
+                "MIT License",
+                "",
+                "Copyright (c) <<year>>, <<company>>",
+                "",
+                "",
+                "File: <<filename>>",
+                "Project: <<projectname>>",
+                "Last Modified: <<dateformat('dddd, Do MMMM YYYY h:mm:ss a')>>",
+                "Modified By: <<author>> (<<authoremail>>>)",
+                "",
+                "############################################################################",
+            ]
+        }
+    ]
+}
