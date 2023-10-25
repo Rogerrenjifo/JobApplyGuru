@@ -17,3 +17,8 @@ JobApplyGuru is an innovative API designed to simplify the job application proce
 # ci commands
 pylint guru/
 python -m unittest discover -s guru/test -v
+coverage run -m unittest discover -s guru/test/
+coverage report
+coverage html
+pytest --html=pytest_report/report.html
+pytest --cov=guru --cov-report term-missing

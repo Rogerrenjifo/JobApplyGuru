@@ -1,0 +1,41 @@
+name: push conventions (linters and unittest verifications)
+
+# strategy to run the pipeline when someone push code
+on:
+  push:
+    branches:
+      - '*'
+      - '!develop'
+      - '!main'
+
+# set permissions
+permissions:
+  contents: read
+
+jobs:
+  code_analysis:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Clone the repository and set the branch
+        uses: actions/checkout@v3
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v3
+        with:
+          python-version: 3.11
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements_test.txt
+
+      - name: Analysing the code with pylint
+        run: |
+          pylint guru/
+
+      - name: execute the test case and code coverage
+        run: |
+          pytest --cov=guru --cov-report term-missing
+          pytest --html=pytest_report/report.html
+          coverage html

@@ -25,4 +25,5 @@ load_dotenv()
 PORT = int(getenv("PORT_ML", "5000"))
 HOST = str(getenv("HOST_ML", "0.0.0.0"))
 
-api = Api()
+
+api = Api(version="1.0", title="Sample API", description="A sample API")
