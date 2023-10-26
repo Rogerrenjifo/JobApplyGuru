@@ -6,30 +6,36 @@
 # Copyright (c) 2023, Roger Renjifo Tarquino                                   #
 #                                                                              #
 #                                                                              #
-# File: configuration.py                                                       #
+# File: Roger.py                                                               #
 # Project: OrgGuardian                                                         #
-# Last Modified: Tuesday, 24th October 2023 7:42:14 pm                         #
+# Last Modified: Wednesday, 25th October 2023 10:40:56 pm                      #
 # Modified By: Roger Renjifo (rrrenjifo@gmail.com>)                            #
 #                                                                              #
 # ############################################################################ #
 """
 
 
-from os import getenv
-from dotenv import load_dotenv
-from flask_restx import Api
+class Roger:
+    """
+    This class represents personal information for Roger Renjifo Tarquino.
+    """
 
+    def __init__(self) -> None:
+        """
+        Initialize a new instance of the Roger class with personal information.
+        """
+        self.name = "Roger Renjifo Tarquino"
+        self.head_line = "QA Automation Tester | API | GUI | AGILE | BDD"
+        self.linkedin = "linkedin.com/in/roger-renjifo"
+        self.email = "rrrenjifo@gmail.com"
+        self.phone_number = 70107641
 
-load_dotenv()
+    def get_cv(self):
+        """
+        Returns the cv document
+        """
 
-PORT = int(getenv("PORT_ML", "5000"))
-HOST = str(getenv("HOST_ML", "0.0.0.0"))
-
-
-api = Api(
-    version="1.0.0",
-    title="Job Apply Guru API",
-    description="This API helps to modify your CV \
-                 according to the job offer, and help you with the cover letter \
-                 (It is still in progress)",
-)
+    def set_cv(self):
+        """
+        Add a new vertion of the cv
+        """

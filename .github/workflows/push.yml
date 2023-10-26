@@ -36,6 +36,6 @@ jobs:
 
       - name: execute the test case and code coverage
         run: |
-          pytest --cov=guru --cov-report term-missing
+          pytest --cov=guru --cov-report term-missing --cov-fail-under=${{vars.MINIMUN_COVERAGE}}
           pytest --html=pytest_report/report.html
           coverage html

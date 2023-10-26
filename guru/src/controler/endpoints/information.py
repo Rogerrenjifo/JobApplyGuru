@@ -6,30 +6,34 @@
 # Copyright (c) 2023, Roger Renjifo Tarquino                                   #
 #                                                                              #
 #                                                                              #
-# File: configuration.py                                                       #
+# File: information.py                                                         #
 # Project: OrgGuardian                                                         #
-# Last Modified: Tuesday, 24th October 2023 7:42:14 pm                         #
+# Last Modified: Thursday, 26th October 2023 12:12:25 am                       #
 # Modified By: Roger Renjifo (rrrenjifo@gmail.com>)                            #
 #                                                                              #
 # ############################################################################ #
 """
 
 
-from os import getenv
-from dotenv import load_dotenv
-from flask_restx import Api
+from flask_restx import Resource, Namespace
+from guru.src.model.personal_information.roger import Roger
+from guru.src.controler.data_models.outputs import information_model
 
 
-load_dotenv()
-
-PORT = int(getenv("PORT_ML", "5000"))
-HOST = str(getenv("HOST_ML", "0.0.0.0"))
+information = Namespace("information", description="This endpoint returns my information")
 
 
-api = Api(
-    version="1.0.0",
-    title="Job Apply Guru API",
-    description="This API helps to modify your CV \
-                 according to the job offer, and help you with the cover letter \
-                 (It is still in progress)",
-)
+@information.route("/roger")
+class FacialAttributes(Resource):
+    """
+    This class represents an endpoint for retrieving personal information.
+    """
+
+    @information.marshal_list_with(information_model)
+    def get(self):
+        """
+        Retrieve and return personal information.
+
+        :return: Personal information as a list.
+        """
+        return Roger()

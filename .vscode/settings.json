@@ -5,9 +5,7 @@
   "terminal.integrated.env.linux": {
     "PYTHONPATH": "${workspaceFolder}"
   },
-  "python.linting.pylintEnabled": true,
-  "python.linting.enabled": true,
-  "python.linting.pylintPath": "venv/Script/pylint",
+  "pylint.args": ["--rcfile=.pylintrc"],
   "psi-header.lang-config": [
 	  {
 	  	"language": "python",
