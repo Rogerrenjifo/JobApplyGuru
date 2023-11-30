@@ -46,3 +46,11 @@ pytest --cov=guru --cov-report term-missing
 - create a new service
 - create a new resource group.
 - select plan 
+
+
+## Document reference
+
+https://flask-sqlalchemy.palletsprojects.com/en/3.1.x/quickstart/#check-the-sqlalchemy-documentation
+https://flask-restx.readthedocs.io/en/latest/
+https://docs.github.com/en/actions/quickstart
+https://portal.azure.com/

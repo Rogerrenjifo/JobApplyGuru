@@ -6,36 +6,34 @@
 # Copyright (c) 2023, Roger Renjifo Tarquino                                   #
 #                                                                              #
 #                                                                              #
-# File: Roger.py                                                               #
+# File: curriculum.py                                                          #
 # Project: OrgGuardian                                                         #
-# Last Modified: Wednesday, 25th October 2023 10:40:56 pm                      #
+# Last Modified: Sunday, 5th November 2023 11:56:02 am                         #
 # Modified By: Roger Renjifo (rrrenjifo@gmail.com>)                            #
 #                                                                              #
 # ############################################################################ #
 """
 
 
-class Roger:
+from flask import request
+from flask_restx import Resource, Namespace
+from guru.src.controler.data_models.outputs import curriculum_model
+
+
+cv = Namespace("information", description="This endpoints manage the user information")
+
+
+@cv.route("/cv_download_link")
+class Curriculum(Resource):
     """
-    This class represents personal information for Roger Renjifo Tarquino.
+    This class represents an endpoint for retrieving personal cv.
     """
 
-    def __init__(self) -> None:
+    @cv.marshal_list_with(curriculum_model)
+    def get(self):
         """
-        Initialize a new instance of the Roger class with personal information.
+        Retrieve and return personal cv.
+        :return: Personal cv
         """
-        self.name = "Roger Renjifo Tarquino"
-        self.head_line = "QA Automation Tester | API | GUI | AGILE | BDD"
-        self.linkedin = "linkedin.com/in/roger-renjifo"
-        self.email = "rrrenjifo@gmail.com"
-        self.file_name = None
-
-    def get_cv(self):
-        """
-        Returns the cv document
-        """
-
-    def set_cv(self):
-        """
-        Add a new vertion of the cv
-        """
+        url = request.url_root + "download?file_name=" + "cv_rrrt.pdf"
+        return {"url": url}

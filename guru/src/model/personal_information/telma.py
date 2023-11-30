@@ -6,28 +6,28 @@
 # Copyright (c) 2023, Roger Renjifo Tarquino                                   #
 #                                                                              #
 #                                                                              #
-# File: Roger.py                                                               #
+# File: telma.py                                                               #
 # Project: OrgGuardian                                                         #
-# Last Modified: Wednesday, 25th October 2023 10:40:56 pm                      #
+# Last Modified: Wednesday, 29th November 2023 11:15:23 pm                     #
 # Modified By: Roger Renjifo (rrrenjifo@gmail.com>)                            #
 #                                                                              #
 # ############################################################################ #
 """
 
 
-class Roger:
+class Telma:
     """
-    This class represents personal information for Roger Renjifo Tarquino.
+    This class represents personal information for Telma Rios.
     """
 
     def __init__(self) -> None:
         """
-        Initialize a new instance of the Roger class with personal information.
+        Initialize a new instance of the Telma class with personal information.
         """
-        self.name = "Roger Renjifo Tarquino"
+        self.name = "Telma Rios"
         self.head_line = "QA Automation Tester | API | GUI | AGILE | BDD"
-        self.linkedin = "linkedin.com/in/roger-renjifo"
-        self.email = "rrrenjifo@gmail.com"
+        self.linkedin = "linkedin.com/in/telma-rios-181161290"
+        self.email = "te.nem021@gmail.com"
         self.file_name = None
 
     def get_cv(self):

@@ -6,28 +6,28 @@
 # Copyright (c) 2023, Roger Renjifo Tarquino                                   #
 #                                                                              #
 #                                                                              #
-# File: Roger.py                                                               #
+# File: fabian.py                                                              #
 # Project: OrgGuardian                                                         #
-# Last Modified: Wednesday, 25th October 2023 10:40:56 pm                      #
+# Last Modified: Wednesday, 29th November 2023 11:15:57 pm                     #
 # Modified By: Roger Renjifo (rrrenjifo@gmail.com>)                            #
 #                                                                              #
 # ############################################################################ #
 """
 
 
-class Roger:
+class Fabian:
     """
-    This class represents personal information for Roger Renjifo Tarquino.
+    This class represents personal information for Fabian Cabrejo.
     """
 
     def __init__(self) -> None:
         """
-        Initialize a new instance of the Roger class with personal information.
+        Initialize a new instance of the Fabian class with personal information.
         """
-        self.name = "Roger Renjifo Tarquino"
-        self.head_line = "QA Automation Tester | API | GUI | AGILE | BDD"
-        self.linkedin = "linkedin.com/in/roger-renjifo"
-        self.email = "rrrenjifo@gmail.com"
+        self.name = "Fabian Cabrejo Arias"
+        self.head_line = "QA Automation Tester"
+        self.linkedin = "linkedin.com/in/fabian-cabrejo-5b3850205"
+        self.email = "cabrejoariasfabian@gmail.com"
         self.file_name = None
 
     def get_cv(self):

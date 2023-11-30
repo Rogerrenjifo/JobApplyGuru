@@ -6,9 +6,9 @@
 # Copyright (c) 2023, Roger Renjifo Tarquino                                   #
 #                                                                              #
 #                                                                              #
-# File: information.py                                                         #
+# File: information_by_id.py                                                   #
 # Project: OrgGuardian                                                         #
-# Last Modified: Thursday, 26th October 2023 12:12:25 am                       #
+# Last Modified: Thursday, 30th November 2023 1:04:09 am                       #
 # Modified By: Roger Renjifo (rrrenjifo@gmail.com>)                            #
 #                                                                              #
 # ############################################################################ #
@@ -16,45 +16,47 @@
 
 
 from flask_restx import Resource, Namespace
-from guru.src.model.personal_information.fabian import Fabian
 from guru.src.model.personal_information.roger import Roger
-from guru.src.model.personal_information.telma import Telma
 from guru.src.controler.data_models.outputs import information_model
-from guru.src.controler.data_models.inputs import parser
+from guru.src.controler.data_models.inputs import parser2
 
-information = Namespace(
-    "information", description="This endpoints manage the user information"
+
+information_by_id = Namespace(
+    "information", description="This endpoints manage the user informations"
 )
 
 
-
-@information.route("")
-class Information(Resource):
+@information_by_id.route("/<string:user_id>")
+class InformationById(Resource):
     """
     This class represents an endpoint for retrieving personal information.
     """
-
-    @information.marshal_list_with(information_model)
-    def get(self):
+    @information_by_id.marshal_with(information_model)
+    def get(self, user_id=None):
         """
         Retrieve and return personal information.
-        :return: Personal information as a list.
+        :return: Personal information as a json.
         """
-        # result = Roger() + Telma()
-        return [Roger(), Telma(), Fabian()]
+        print(user_id)
+        return Roger()
 
-    @information.expect(parser, information_model)
-    def post(self):
+    @information_by_id.expect(information_model)
+    def put(self):
         """
-        Add new personal information.
-        :param name: Name of the user.
-        :param files: CV file to upload.
-        :return: JSON response with the name and CV filename.
+        Update personal information.
+        :param name: Updated name of the user.
+        :param other_field: Additional field to update.
+        :return: JSON response with the updated information.
         """
-        args = parser.parse_args()
-        name = args["name"]
-        cv_file = args["files"]
-        cv_filename = cv_file.filename
-        cv_file.save(f"guru/files/{cv_filename}")
+        args = information_model.payload
+        return args, 201
 
-        return {"name": name, "cv_filename": "cv_filename"}, 201
+    @information_by_id.expect(parser2)
+    def delete(self):
+        """
+        Delete personal information.
+        :param id: ID of the user to delete.
+        :return: JSON response with the deleted user information.
+        """
+        args = parser2.parse_args()
+        return args, 200

@@ -22,3 +22,7 @@ from guru.src.configuration import api
 information_model = api.model(
     "Roger", {"name": fields.String, "linkedin": fields.String, "email": fields.String}
 )
+
+curriculum_model = api.model(
+    "curriculum", {'url': fields.String}
+)

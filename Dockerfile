@@ -5,6 +5,10 @@ FROM python:3.11-slim
 # Set the working directory to /app
 WORKDIR /app
 
+RUN apt-get update && \
+    apt-get install -y unixodbc unixodbc-dev && \
+    rm -rf /var/lib/apt/lists/*
+
 # Copy the current directory contents into the container at /app
 COPY . /app
 # Set the PYTHONPATH environment variable

@@ -79,7 +79,7 @@ jobs:
     steps:
       - run: echo deploy server to AWS
           
-  deploy-server-on-azzure:
+  deploy-server-on-azure:
     needs: build
     runs-on: ubuntu-latest
     steps:

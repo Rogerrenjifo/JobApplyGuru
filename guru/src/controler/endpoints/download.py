@@ -6,36 +6,28 @@
 # Copyright (c) 2023, Roger Renjifo Tarquino                                   #
 #                                                                              #
 #                                                                              #
-# File: Roger.py                                                               #
+# File: download.py                                                            #
 # Project: OrgGuardian                                                         #
-# Last Modified: Wednesday, 25th October 2023 10:40:56 pm                      #
+# Last Modified: Sunday, 5th November 2023 12:05:03 pm                         #
 # Modified By: Roger Renjifo (rrrenjifo@gmail.com>)                            #
 #                                                                              #
 # ############################################################################ #
 """
 
 
-class Roger:
-    """
-    This class represents personal information for Roger Renjifo Tarquino.
-    """
+from flask import request, send_from_directory
+from flask_restx import Resource, Namespace
 
-    def __init__(self) -> None:
-        """
-        Initialize a new instance of the Roger class with personal information.
-        """
-        self.name = "Roger Renjifo Tarquino"
-        self.head_line = "QA Automation Tester | API | GUI | AGILE | BDD"
-        self.linkedin = "linkedin.com/in/roger-renjifo"
-        self.email = "rrrenjifo@gmail.com"
-        self.file_name = None
+download = Namespace("download", description="This endpoints download the CV documents")
 
-    def get_cv(self):
-        """
-        Returns the cv document
-        """
 
-    def set_cv(self):
-        """
-        Add a new vertion of the cv
-        """
+@download.route("")
+class Download(Resource):
+    """Defines download file method --> url"""
+
+    def get(self):
+        """Downloads file"""
+        file_name = request.args["file_name"]
+        print(file_name)
+        a = "C:/Users/Roger/Documents/projects/developer_projects/JobApplyGuru/guru/files"
+        return send_from_directory(directory=a, path=file_name, as_attachment=False)

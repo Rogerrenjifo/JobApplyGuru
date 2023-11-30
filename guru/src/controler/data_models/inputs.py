@@ -6,36 +6,22 @@
 # Copyright (c) 2023, Roger Renjifo Tarquino                                   #
 #                                                                              #
 #                                                                              #
-# File: Roger.py                                                               #
+# File: inputs.py                                                              #
 # Project: OrgGuardian                                                         #
-# Last Modified: Wednesday, 25th October 2023 10:40:56 pm                      #
+# Last Modified: Thursday, 30th November 2023 1:07:00 am                       #
 # Modified By: Roger Renjifo (rrrenjifo@gmail.com>)                            #
 #                                                                              #
 # ############################################################################ #
 """
 
 
-class Roger:
-    """
-    This class represents personal information for Roger Renjifo Tarquino.
-    """
+from werkzeug.datastructures import FileStorage
+from flask_restx import reqparse
 
-    def __init__(self) -> None:
-        """
-        Initialize a new instance of the Roger class with personal information.
-        """
-        self.name = "Roger Renjifo Tarquino"
-        self.head_line = "QA Automation Tester | API | GUI | AGILE | BDD"
-        self.linkedin = "linkedin.com/in/roger-renjifo"
-        self.email = "rrrenjifo@gmail.com"
-        self.file_name = None
 
-    def get_cv(self):
-        """
-        Returns the cv document
-        """
-
-    def set_cv(self):
-        """
-        Add a new vertion of the cv
-        """
+parser = reqparse.RequestParser()
+parser.add_argument("rate", type=int, help="Rate cannot be converted", location="form")
+parser.add_argument("name", location="form")
+parser.add_argument("files", type=FileStorage, location="files")
+parser2 = reqparse.RequestParser()
+parser2.add_argument("id", help="the id of the user to be deleted ")

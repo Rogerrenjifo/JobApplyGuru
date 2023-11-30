@@ -6,4 +6,6 @@ pytest-html==4.0.2
 
 python-dotenv==0.21.0
 flask-restx==1.2.0
+Flask-SQLAlchemy==3.1.1
+pyodbc==5.0.1
 gunicorn==21.2.0
