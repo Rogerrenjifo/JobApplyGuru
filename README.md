@@ -54,3 +54,9 @@ https://flask-sqlalchemy.palletsprojects.com/en/3.1.x/quickstart/#check-the-sqla
 https://flask-restx.readthedocs.io/en/latest/
 https://docs.github.com/en/actions/quickstart
 https://portal.azure.com/
+
+### Create a workflow dispatch event
+> https://docs.github.com/en/rest/actions/workflows?apiVersion=2022-11-28#create-a-workflow-dispatch-event
+### Slack commands 
+> https://api.slack.com/interactivity/slash-commands
+> https://www.bing.com/videos/riverview/relatedvideo?q=create%20commands%20slack&mid=49DB823936A23EAF9A7749DB823936A23EAF9A77&ajaxhist=0

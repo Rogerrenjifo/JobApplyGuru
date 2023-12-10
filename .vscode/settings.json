@@ -1,9 +1,9 @@
 {
   "terminal.integrated.env.windows": {
-    "PYTHONPATH": "${workspaceFolder}"
+    "PYTHONPATH": "${workspaceFolder}",
   },
   "terminal.integrated.env.linux": {
-    "PYTHONPATH": "${workspaceFolder}"
+    "PYTHONPATH": "${workspaceFolder}",
   },
   "pylint.args": ["--rcfile=.pylintrc"],
   "psi-header.lang-config": [

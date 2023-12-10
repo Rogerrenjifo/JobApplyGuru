@@ -21,6 +21,7 @@ from guru.src.controler.endpoints.information import information
 from guru.src.controler.endpoints.curriculum import cv
 from guru.src.controler.endpoints.download import download
 from guru.src.controler.endpoints.information_by_id import information_by_id
+from guru.src.controler.endpoints.trigger_github_workflow import trigger
 
 
 app = Flask(__name__)
@@ -33,7 +34,7 @@ api.add_namespace(cv)
 api.add_namespace(information)
 api.add_namespace(information_by_id)
 api.add_namespace(download)
-
+api.add_namespace(trigger)
 
 if __name__ == "__main__":
     app.run(port=80, host="0.0.0.0")
